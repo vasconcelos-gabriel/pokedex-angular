@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&family=Signika:wght@300..700&display=swap';
+
+@import 'styles/variables';
+@import 'styles/global';
+@import 'styles/themes/light-theme';
+@import 'styles/themes/dark-theme';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

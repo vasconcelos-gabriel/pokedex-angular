@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon'; // Adicione esta linha
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PokemonListComponent } from './pages/pokemon-list/pokemon-list.component';
+import { PokemonDetailComponent } from './pages/pokemon-detail/pokemon-detail.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent],
+  imports: [BrowserModule, AppRoutingModule, MatIconModule, HttpClientModule],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

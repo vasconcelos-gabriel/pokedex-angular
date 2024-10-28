@@ -1,0 +1,10 @@
+@import '../_variables';
+
+body {
+    background-color: $dark-bg-color;
+    color: $dark-text;
+}
+
+.card {
+    background-color: $dark-card-bg;
+}
