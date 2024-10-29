@@ -24,4 +24,20 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  background-image: url('/assets/pokeball.png'), url('/assets/pokeball.png'), url('/assets/pokeball.png');
+  background-position:
+    -15% 0%,
+    82% -50%,
+    117% 82%;
+  background-repeat: no-repeat;
+  background-size: 25vw, 25vw, 25vw;
+
+  @media (max-width: 768px) {
+    background-size: 50vw, 50vw, 50vw;
+    background-position:
+      -50% -5%,
+      90% -16%,
+      165% 47%;
+  }
 }

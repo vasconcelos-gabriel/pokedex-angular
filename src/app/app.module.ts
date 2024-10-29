@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatIconModule } from '@angular/material/icon'; // Adicione esta linha
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonListComponent } from './pages/pokemon-list/pokemon-list.component';
@@ -12,7 +13,7 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
 
 @NgModule({
   declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent, PokemonCardComponent],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, MatIconModule, HttpClientModule, MatInputModule, MatButtonModule],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

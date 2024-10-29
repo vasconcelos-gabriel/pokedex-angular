@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
-    <div class="pokemon-type" *ngFor="let type of pokemon.types">
-      <span [ngClass]="type.type.name">{{ type.type.name | titlecase }}</span>
+    <div class="pokemon-type">
+      <span *ngFor="let type of pokemon.types" [ngClass]="type.type.name">{{ type.type.name | titlecase }}</span>
     </div>
     <h3>#{{ pokemonId }}</h3>
   </div>
@@ -9,7 +9,7 @@
     <div>
       <h1 class="card-title">{{ pokemon.name | titlecase }}</h1>
       <p class="card-description">
-        A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.
+        {{ pokemon.flavor_text_entries[0].flavor_text | titlecase }}
       </p>
       <button class="card-button">Know More</button>
     </div>

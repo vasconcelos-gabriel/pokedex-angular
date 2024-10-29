@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 export interface PokemonList {
   results: Array<{ name: string; url: string }>;
+}
+
+export interface FlavorTextEntry {
+  flavor_text: string;
+  language: {
+    name: string;
+    url: string;
+  };
 }
 
 export interface Pokemon {
@@ -18,6 +26,11 @@ export interface Pokemon {
     };
   };
   types: Array<{ type: { name: string } }>;
+  flavor_text_entries: FlavorTextEntry[];
+}
+
+export interface PokemonSpecies {
+  flavor_text_entries: FlavorTextEntry[];
 }
 
 @Injectable({
@@ -33,6 +46,15 @@ export class PokemonService {
   }
 
   getPokemonDetailsById(id: number): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${this.baseUrl}/${id}`);
+    return this.http.get<Pokemon>(`${this.baseUrl}/${id}`).pipe(
+      switchMap((pokemon) => {
+        return this.http.get<PokemonSpecies>(`${this.baseUrl}-species/${id}`).pipe(
+          map((species) => {
+            pokemon.flavor_text_entries = species.flavor_text_entries;
+            return pokemon;
+          }),
+        );
+      }),
+    );
   }
 }
