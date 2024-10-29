@@ -10,9 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
     .pokemon-type {
       display: flex;
       gap: 9px;
+
     }
 
     span {
@@ -22,9 +25,24 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      gap: 9px;
-      background-color: $type-grass;
       border-radius: 50px;
+      &.grass { background-color: $type-grass; }
+      &.poison { background-color: $type-poison; }
+      &.fire { background-color: $type-fire; }
+      &.water { background-color: $type-water; }
+      &.flying { background-color: $type-flying; }
+      &.fighting { background-color: $type-fighting; }
+      &.electric { background-color: $type-electric; }
+      &.ground { background-color: $type-ground; }
+      &.rock { background-color: $type-rock; }
+      &.psychic { background-color: $type-psychic; }
+      &.ice { background-color: $type-ice; }
+      &.bug { background-color: $type-bug; }
+      &.ghost { background-color: $type-ghost; }
+      &.steel { background-color: $type-steel; }
+      &.dragon { background-color: $type-dragon; }
+      &.dark { background-color: $type-dark; }
+      &.fairy { background-color: $type-fairy; }
     }
   }
 

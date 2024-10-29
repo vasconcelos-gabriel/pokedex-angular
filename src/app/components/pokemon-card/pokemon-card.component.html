@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
     <div class="pokemon-type" *ngFor="let type of pokemon.types">
-      <span>{{ type.type.name | titlecase }}</span>
+      <span [ngClass]="type.type.name">{{ type.type.name | titlecase }}</span>
     </div>
     <h3>#{{ pokemonId }}</h3>
   </div>
