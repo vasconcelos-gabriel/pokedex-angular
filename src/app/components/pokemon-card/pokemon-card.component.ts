@@ -8,5 +8,5 @@ import { Pokemon } from '../../services/pokemon.service';
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
-  @Input() index!: number;
+  @Input() pokemonId!: number;
 }

@@ -19,7 +19,10 @@ export class PokemonListComponent implements OnInit {
 
   loadPokemons(): void {
     this.pokemonService.getPokemonList().subscribe((response: PokemonList) => {
-      const pokemonDetailsRequests = response.results.map((pokemon) => this.pokemonService.getPokemonDetails(pokemon.url));
+      const pokemonDetailsRequests = response.results.map((pokemon) => {
+        const id = pokemon.url.split('/').filter(Boolean).pop();
+        return this.pokemonService.getPokemonDetailsById(Number(id));
+      });
       forkJoin(pokemonDetailsRequests).subscribe((details: Pokemon[]) => {
         this.pokemons = details;
       });

@@ -7,6 +7,6 @@
     </button>
   </div>
   <div class="card-container">
-    <app-pokemon-card *ngFor="let pokemon of pokemons; let i = index" [pokemon]="pokemon" [index]="i"> </app-pokemon-card>
+    <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" [pokemonId]="pokemon.id"> </app-pokemon-card>
   </div>
 </div>

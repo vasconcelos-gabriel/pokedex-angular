@@ -7,9 +7,15 @@ export interface PokemonList {
 }
 
 export interface Pokemon {
+  id: number;
   name: string;
   sprites: {
     front_default: string;
+    other: {
+      'official-artwork': {
+        front_default: string;
+      };
+    };
   };
   types: Array<{ type: { name: string } }>;
 }
@@ -26,7 +32,7 @@ export class PokemonService {
     return this.http.get<PokemonList>(`${this.baseUrl}?limit=${limit}&offset=${offset}`);
   }
 
-  getPokemonDetails(url: string): Observable<Pokemon> {
-    return this.http.get<Pokemon>(url);
+  getPokemonDetailsById(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(`${this.baseUrl}/${id}`);
   }
 }
