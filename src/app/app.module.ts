@@ -8,9 +8,10 @@ import { PokemonListComponent } from './pages/pokemon-list/pokemon-list.componen
 import { PokemonDetailComponent } from './pages/pokemon-detail/pokemon-detail.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
+import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent],
+  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent, PokemonCardComponent],
   imports: [BrowserModule, AppRoutingModule, MatIconModule, HttpClientModule],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

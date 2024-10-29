@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    <div class="pokemon-type" *ngFor="let type of pokemon.types">
+      <span>{{ type.type.name | titlecase }}</span>
+    </div>
+    <h3>#{{ index + 1 }}</h3>
+  </div>
+  <div class="card-content">
+    <div>
+      <h1 class="card-title">{{ pokemon.name | titlecase }}</h1>
+      <p class="card-description">
+        A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.
+      </p>
+      <button class="card-button">Know More</button>
+    </div>
+    <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" class="card-image" />
+  </div>
+</div>

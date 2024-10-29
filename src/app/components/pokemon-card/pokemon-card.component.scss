@@ -1,0 +1,64 @@
+@import '../../../styles/variables';
+.card {
+  width: 344px;
+  // height: 196px;
+  border-radius: 24px;
+  box-shadow: 0px 21px 25.9px -14px rgba(0, 0, 0, 0.1);
+  padding: 17px;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .pokemon-type {
+      display: flex;
+      gap: 9px;
+    }
+
+    span {
+      width: 50px;
+      height: 21px;
+      padding: 6px 12px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 9px;
+      background-color: $type-grass;
+      border-radius: 50px;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    gap: 23px;
+
+    .card-title {
+      font-size: 27px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .card-description {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 8px;
+    }
+
+    .card-button {
+      display: flex;
+      padding: 8px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 50px;
+      background: $button-primary;
+      font-size: 15px;
+    }
+  }
+  .card-image {
+    width: 123px;
+    height: auto;
+  }
+}
