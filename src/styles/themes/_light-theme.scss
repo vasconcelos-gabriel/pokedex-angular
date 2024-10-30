@@ -1,10 +1,21 @@
 @import '../_variables';
 
-body {
+.light-theme {
   background-color: $light-bg-color;
   color: $light-text;
-}
 
-.card {
-  background-color: $light-card-bg;
+  .card,
+  .details-content {
+    background-color: $light-card-bg;
+  }
+
+  .measurements {
+    span {
+      background-color: $light-bg-color;
+    }
+  }
+
+  .ability-button {
+    background-color: $light-bg-color;
+  }
 }

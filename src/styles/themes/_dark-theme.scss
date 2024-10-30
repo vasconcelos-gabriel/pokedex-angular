@@ -1,10 +1,21 @@
 @import '../_variables';
 
-body {
+.dark-theme {
   background-color: $dark-bg-color;
   color: $dark-text;
-}
 
-.card {
-  background-color: $dark-card-bg;
+  .card,
+  .details-content {
+    background-color: $dark-card-bg;
+  }
+
+  .measurements {
+    span {
+      background-color: $button-primary;
+    }
+  }
+
+  .ability-button {
+    background-color: $button-primary;
+  }
 }

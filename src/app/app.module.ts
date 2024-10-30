@@ -10,10 +10,19 @@ import { PokemonDetailComponent } from './pages/pokemon-detail/pokemon-detail.co
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent, PokemonCardComponent],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, HttpClientModule, MatInputModule, MatButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatIconModule,
+    HttpClientModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+  ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
