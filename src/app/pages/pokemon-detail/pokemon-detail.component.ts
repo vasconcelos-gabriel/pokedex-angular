@@ -26,11 +26,20 @@ export class PokemonDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    this.loadPokemonDetails();
+  }
+
+  private loadPokemonDetails(): void {
+    const id = this.getPokemonIdFromRoute();
     if (id) {
-      this.pokemonService.getPokemonDetailsById(Number(id)).subscribe((data) => {
+      this.pokemonService.getPokemonDetailsById(id).subscribe((data) => {
         this.pokemon = data;
       });
     }
+  }
+
+  private getPokemonIdFromRoute(): number | null {
+    const id = this.route.snapshot.paramMap.get('id');
+    return id ? Number(id) : null;
   }
 }

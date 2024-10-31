@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonList, Pokemon } from '../../models/pokemon.models';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -19,17 +19,27 @@ export class PokemonListComponent implements OnInit {
     this.loadPokemons();
   }
 
-  loadPokemons(): void {
+  private loadPokemons(): void {
     this.pokemonService.getPokemonList().subscribe((response: PokemonList) => {
-      const pokemonDetailsRequests = response.results.map((pokemon) => {
-        const id = pokemon.url.split('/').filter(Boolean).pop();
-        return this.pokemonService.getPokemonDetailsById(Number(id));
-      });
-      forkJoin(pokemonDetailsRequests).subscribe((details: Pokemon[]) => {
+      this.fetchPokemonDetails(response.results).subscribe((details: Pokemon[]) => {
         this.pokemons = details;
         this.filteredPokemons = details;
       });
     });
+  }
+
+  private fetchPokemonDetails(results: { name: string; url: string }[]): Observable<Pokemon[]> {
+    const detailRequests = results.map((pokemon) => this.getPokemonDetailByUrl(pokemon.url));
+    return forkJoin(detailRequests);
+  }
+
+  private getPokemonDetailByUrl(url: string): Observable<Pokemon> {
+    const id = this.extractPokemonId(url);
+    return this.pokemonService.getPokemonDetailsById(id);
+  }
+
+  private extractPokemonId(url: string): number {
+    return Number(url.split('/').filter(Boolean).pop());
   }
 
   searchPokemon(): void {
