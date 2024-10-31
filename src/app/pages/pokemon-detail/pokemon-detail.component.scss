@@ -31,12 +31,11 @@
       gap: 20px;
       border-radius: 20px;
       box-shadow: none;
-
     }
 
     .pokemon-image {
       width: 470px;
-      height: 483px;
+      height: auto;
 
       @media (max-width: 768px) {
         width: 70%;
@@ -295,7 +294,7 @@
 
   .evolution-images img:nth-of-type(1) {
     width: 71px;
-    height: 72px;
+    height: auto;
 
     @media (max-width: 768px) {
       width: 62px;
@@ -305,7 +304,7 @@
 
   .evolution-images img:nth-of-type(2) {
     width: 103px;
-    height: 106px;
+    height: auto;
 
     @media (max-width: 768px) {
       width: 62px;
@@ -315,7 +314,7 @@
 
   .evolution-images img:nth-of-type(3) {
     width: 161px;
-    height: 163px;
+    height: auto;
 
     @media (max-width: 768px) {
       width: 62px;

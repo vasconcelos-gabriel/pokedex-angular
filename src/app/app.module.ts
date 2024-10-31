@@ -12,9 +12,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { HeaderComponent } from './components/header/header.component';
+import { FormsModule } from '@angular/forms';
+import { SwitchButtonComponent } from './components/switch-button/switch-button.component';
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent, PokemonCardComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    PokemonListComponent,
+    PokemonDetailComponent,
+    PokemonCardComponent,
+    HeaderComponent,
+    SwitchButtonComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +32,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatInputModule,
     MatButtonModule,
     MatSlideToggleModule,
+    FormsModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

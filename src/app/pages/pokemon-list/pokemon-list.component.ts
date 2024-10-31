@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonList, Pokemon, PokemonService } from '../../services/pokemon.service';
+import { PokemonService } from '../../services/pokemon.service';
+import { PokemonList, Pokemon } from '../../models/pokemon.models';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -9,6 +10,7 @@ import { forkJoin } from 'rxjs';
 })
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[] = [];
+  filteredPokemons: Pokemon[] = [];
   searchQuery = '';
 
   constructor(private pokemonService: PokemonService) {}
@@ -25,7 +27,13 @@ export class PokemonListComponent implements OnInit {
       });
       forkJoin(pokemonDetailsRequests).subscribe((details: Pokemon[]) => {
         this.pokemons = details;
+        this.filteredPokemons = details;
       });
     });
+  }
+
+  searchPokemon(): void {
+    const query = this.searchQuery.toLowerCase().trim();
+    this.filteredPokemons = this.pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(query));
   }
 }

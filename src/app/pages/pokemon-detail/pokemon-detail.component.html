@@ -53,11 +53,20 @@
     <div class="evolution-details">
       <h2>Evolution</h2>
       <div class="evolution-images">
-        <img src="/assets/bulbasaur.png" alt="Bulbasaur" />
+        <img
+          *ngIf="pokemon.sprites.front_default"
+          [src]="pokemon.sprites.other['official-artwork'].front_default"
+          alt="Bulbasaur" />
         <mat-icon>arrow_forward</mat-icon>
-        <img src="/assets/bulbasaur.png" alt="Ivysaur" />
+        <img
+          *ngIf="pokemon.sprites.front_default"
+          [src]="pokemon.sprites.other['official-artwork'].front_default"
+          alt="Ivysaur" />
         <mat-icon>arrow_forward</mat-icon>
-        <img src="/assets/bulbasaur.png" alt="Venusaur" />
+        <img
+          *ngIf="pokemon.sprites.front_default"
+          [src]="pokemon.sprites.other['official-artwork'].front_default"
+          alt="Venusaur" />
       </div>
     </div>
   </div>

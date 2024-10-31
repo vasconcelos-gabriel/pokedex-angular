@@ -2,13 +2,13 @@
   <div class="pokedex">
     <img src="/assets/pokedex-logo.png" alt="Pokédex logo" class="pokedex-logo" />
     <div class="search">
-      <input type="text" placeholder="search eg, ditto or pikachu..." class="search-input" />
-      <button mat-button class="search-button">
+      <input type="text" placeholder="search eg, ditto or pikachu..." class="search-input" [(ngModel)]="searchQuery" />
+      <button mat-button class="search-button" (click)="searchPokemon()">
         <mat-icon>search</mat-icon>
       </button>
     </div>
     <div class="card-container">
-      <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" [pokemonId]="pokemon.id"> </app-pokemon-card>
+      <app-pokemon-card *ngFor="let pokemon of filteredPokemons" [pokemon]="pokemon" [pokemonId]="pokemon.id"> </app-pokemon-card>
     </div>
   </div>
 </div>

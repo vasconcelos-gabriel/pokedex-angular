@@ -9,7 +9,6 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 
   @media (max-width: 768px) {
     width: 307px;
@@ -131,6 +130,7 @@
       background: $button-primary;
       font-size: 15px;
       margin-top: auto;
+      cursor: pointer;
 
       @media (max-width: 768px) {
         width: 78px;

@@ -24,7 +24,7 @@
       width: 70%;
       height: auto;
       margin-bottom: 32px;
-      margin-top: 200px;
+      margin-top: 85px;
     }
   }
 
@@ -88,7 +88,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 34px;
-    margin: 0; // Remova ou ajuste a margem
+    margin: 0;
     padding: 0 20px;
 
     @media (max-width: 768px) {
