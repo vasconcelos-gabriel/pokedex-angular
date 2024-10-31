@@ -2,8 +2,8 @@
 
 .pokemon-details {
   @media (max-width: 768px) {
-    margin-left: 19px;
-    margin-right: 19px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 .details-container {
@@ -27,10 +27,11 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 19px 19px;
+      padding: 10px 14px;
       gap: 20px;
       border-radius: 20px;
       box-shadow: none;
+
     }
 
     .pokemon-image {
