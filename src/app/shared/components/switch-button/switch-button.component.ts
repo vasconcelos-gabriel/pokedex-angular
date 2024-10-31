@@ -1,18 +1,14 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  selector: 'app-switch-button',
+  templateUrl: './switch-button.component.html',
+  styleUrl: './switch-button.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class SwitchButtonComponent implements OnInit {
   isDarkTheme = false;
 
-  constructor(
-    private renderer: Renderer2,
-    private router: Router,
-  ) {}
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.applyTheme();
@@ -28,9 +24,5 @@ export class HeaderComponent implements OnInit {
     this.renderer.removeClass(document.body, 'dark-theme');
     this.renderer.removeClass(document.body, 'light-theme');
     this.renderer.addClass(document.body, theme);
-  }
-
-  goToHome() {
-    this.router.navigate(['/']);
   }
 }
