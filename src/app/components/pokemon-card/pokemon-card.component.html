@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" tabindex="0" (click)="viewDetails()" (keyup.enter)="viewDetails()" (keyup.space)="viewDetails()">
   <div class="card-header">
     <div class="pokemon-type">
       <span *ngFor="let type of pokemon.types" [ngClass]="type.type.name">{{ type.type.name | titlecase }}</span>

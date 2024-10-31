@@ -1,60 +1,51 @@
 <div class="pokemon-details">
   <div class="details-container">
     <div class="details-content">
-      <img src="/assets/bulbasaur.png" alt="Pokédex logo" class="pokemon-image" />
+      <img
+        *ngIf="pokemon.sprites.front_default"
+        [src]="pokemon.sprites.other['official-artwork'].front_default"
+        alt="{{ pokemon.name }}"
+        class="pokemon-image" />
+
       <div>
         <div class="details-info">
           <div class="details-header">
-            <h3>#001</h3>
-            <h1>Bulbasaur</h1>
-            <div class="details-types"><span class="grass">Grass</span> <span class="poison">Poison</span></div>
+            <h3>#{{ pokemon.id | number: '2.0-0' }}</h3>
+            <h1>{{ pokemon.name | titlecase }}</h1>
+            <div class="details-types">
+              <span *ngFor="let type of pokemon.types" [ngClass]="type.type.name">
+                {{ type.type.name | titlecase }}
+              </span>
+            </div>
           </div>
         </div>
         <p class="details-description">
-          A strange seed was planted on its back at birth. the plant sprouts and grows with this pokémon.
+          {{ pokemon.flavor_text_entries[0].flavor_text || 'Sem descrição pra esse pokemon.' }}
         </p>
         <div class="measurements">
           <span>
             <span class="label">Height</span>
-            <span class="value">0.7m</span>
+            <span class="value">{{ pokemon.height ? pokemon.height / 10 : 'Sem informação' }}m</span>
           </span>
           <span>
             <span class="label">Weight</span>
-            <span class="value">0.7m</span>
+            <span class="value">{{ pokemon.weight ? pokemon.weight / 10 : 'Sem informação' }} kg</span>
           </span>
         </div>
 
         <h2>Stats</h2>
         <div class="stats">
-          <div class="stat hp">
-            <span>HP</span>
-            <span class="hp">47</span>
-          </div>
-          <div class="stat atk">
-            <span>ATK</span>
-            <span class="atk">47</span>
-          </div>
-          <div class="stat def">
-            <span>DEF</span>
-            <span class="def">47</span>
-          </div>
-          <div class="stat spa">
-            <span>SpA</span>
-            <span class="spa">47</span>
-          </div>
-          <div class="stat spd">
-            <span>SpD</span>
-            <span class="spd">47</span>
-          </div>
-          <div class="stat speed">
-            <span>SPD</span>
-            <span class="speed">47</span>
+          <div class="stat" [ngClass]="statAbbreviations[stat.stat.name].toLowerCase()" *ngFor="let stat of pokemon.stats">
+            <span>{{ statAbbreviations[stat.stat.name] }}</span>
+            <span class="value">{{ stat.base_stat }}</span>
           </div>
         </div>
+
         <h2>Abilities</h2>
         <div class="abilities">
-          <button class="ability-button">Overgrow</button>
-          <button class="ability-button">Chlorophyll</button>
+          <button class="ability-button" *ngFor="let ability of pokemon.abilities">
+            {{ ability.ability.name | titlecase }}
+          </button>
         </div>
       </div>
     </div>

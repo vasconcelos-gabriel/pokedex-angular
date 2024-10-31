@@ -11,9 +11,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent, PokemonCardComponent],
+  declarations: [AppComponent, PokemonListComponent, PokemonDetailComponent, PokemonCardComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
