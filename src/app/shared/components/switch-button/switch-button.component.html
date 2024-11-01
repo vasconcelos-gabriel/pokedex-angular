@@ -1,6 +1,6 @@
-<div class="btn-container" (click)="toggleTheme()" (keyup.enter)="toggleTheme()" tabindex="0">
+<div class="btn-container">
   <label class="switch btn-color-mode-switch">
-    <input value="1" id="color_mode" name="color_mode" type="checkbox" />
+    <input type="checkbox" [checked]="isDarkTheme" (change)="toggleTheme()" id="color_mode" name="color_mode" />
     <label class="btn-color-mode-switch-inner" data-off="Light" data-on="Dark" for="color_mode"></label>
   </label>
 </div>
