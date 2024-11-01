@@ -12,7 +12,7 @@ export class PokemonService {
 
   constructor(private http: HttpClient) {}
 
-  getPokemonList(limit: number = 20, offset: number = 0): Observable<PokemonList> {
+  getPokemonList(limit: number = 1010, offset: number = 0): Observable<PokemonList> {
     const url = `${this.baseUrl}?limit=${limit}&offset=${offset}`;
     return this.http.get<PokemonList>(url);
   }

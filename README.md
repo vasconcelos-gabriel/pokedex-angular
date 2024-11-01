@@ -1,6 +1,14 @@
-# Boilerplate
+# Pokedex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
+Este projeto é uma Pokedex desenvolvida com Angular, exibindo informações detalhadas de Pokémons, como imagens, tipos, habilidades, estatísticas e evoluções. Integrado com a PokeAPI, permite listar e pesquisar Pokémons, oferecendo uma navegação responsiva e intuitiva para explorar as características de cada um.
+
+## Estrutura e Funcionalidades
+
+- **Listagem de Pokémon**: Exibe uma lista de Pokémon no componente `pokemon-list`.
+- **Pesquisa de Pokémon**: Permite buscar Pokémon específicos por nome no componente `pokemon-list`.
+- **Detalhes do Pokémon**: Mostra informações detalhadas sobre o Pokémon selecionado no componente `pokemon-detail`, incluindo imagem, altura, peso, tipos, estatísticas, habilidades e evoluções.
+- **Layout Responsivo**: Interface adaptável para diferentes tamanhos de tela, oferecendo uma experiência agradável tanto em dispositivos móveis quanto em desktops.
+
 
 ## Development server
 
