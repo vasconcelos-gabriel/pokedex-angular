@@ -10,9 +10,15 @@ export interface FlavorTextEntry {
   };
 }
 
+export interface EvolutionChain {
+  species: {
+    name: string;
+    url: string;
+  };
+  evolves_to: EvolutionChain[];
+}
 export interface Evolution {
   name: string;
-  url: string;
   sprites: {
     other: {
       'official-artwork': {
@@ -20,7 +26,6 @@ export interface Evolution {
       };
     };
   };
-  isLast?: boolean;
 }
 
 export interface Pokemon {
@@ -45,4 +50,7 @@ export interface Pokemon {
 
 export interface PokemonSpecies {
   flavor_text_entries: FlavorTextEntry[];
+  evolution_chain?: {
+    url: string;
+  };
 }

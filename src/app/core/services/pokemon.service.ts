@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, switchMap } from 'rxjs';
-import { Pokemon, PokemonList, PokemonSpecies } from '../../models/pokemon.models';
+import { map, Observable, of, switchMap } from 'rxjs';
+import { Evolution, EvolutionChain, Pokemon, PokemonList, PokemonSpecies } from '../../models/pokemon.models';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +19,37 @@ export class PokemonService {
 
   getPokemonDetailsById(id: number): Observable<Pokemon> {
     return this.http.get<Pokemon>(`${this.baseUrl}/${id}`).pipe(switchMap((pokemon) => this.getPokemonSpeciesData(id, pokemon)));
+  }
+
+  getPokemonEvolutionChain(id: number): Observable<Evolution[]> {
+    return this.http.get<PokemonSpecies>(`${this.speciesUrl}/${id}`).pipe(
+      switchMap((species) => {
+        if (species.evolution_chain?.url) {
+          return this.http.get<{ chain: EvolutionChain }>(species.evolution_chain.url);
+        }
+        return of({ chain: null });
+      }),
+      map((evolutionData) => (evolutionData.chain ? this.mapEvolutionChain(evolutionData.chain) : [])),
+    );
+  }
+
+  private mapEvolutionChain(chain: EvolutionChain): Evolution[] {
+    const evolutions: Evolution[] = [];
+    let currentChain = chain;
+    while (currentChain) {
+      evolutions.push({
+        name: currentChain.species.name,
+        sprites: {
+          other: {
+            'official-artwork': {
+              front_default: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentChain.species.url.split('/').slice(-2, -1)}.png`,
+            },
+          },
+        },
+      });
+      currentChain = currentChain.evolves_to[0];
+    }
+    return evolutions;
   }
 
   private getPokemonSpeciesData(id: number, pokemon: Pokemon): Observable<Pokemon> {

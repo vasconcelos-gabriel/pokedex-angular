@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pokemon } from '../../models/pokemon.models';
+import { Evolution, Pokemon } from '../../models/pokemon.models';
 import { PokemonService } from '../../core/services/pokemon.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { PokemonService } from '../../core/services/pokemon.service';
 })
 export class PokemonDetailComponent implements OnInit {
   pokemon!: Pokemon;
+  evolutions: Evolution[] = [];
 
   statAbbreviations: { [key: string]: string } = {
     hp: 'HP',
@@ -34,8 +35,15 @@ export class PokemonDetailComponent implements OnInit {
     if (id) {
       this.pokemonService.getPokemonDetailsById(id).subscribe((data) => {
         this.pokemon = data;
+        this.loadEvolutionChain(data.id);
       });
     }
+  }
+
+  private loadEvolutionChain(id: number): void {
+    this.pokemonService.getPokemonEvolutionChain(id).subscribe((evolutionData) => {
+      this.evolutions = evolutionData;
+    });
   }
 
   private getPokemonIdFromRoute(): number | null {

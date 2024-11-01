@@ -53,20 +53,10 @@
     <div class="evolution-details">
       <h2>Evolution</h2>
       <div class="evolution-images">
-        <img
-          *ngIf="pokemon.sprites.front_default"
-          [src]="pokemon.sprites.other['official-artwork'].front_default"
-          alt="Bulbasaur" />
-        <mat-icon>arrow_forward</mat-icon>
-        <img
-          *ngIf="pokemon.sprites.front_default"
-          [src]="pokemon.sprites.other['official-artwork'].front_default"
-          alt="Ivysaur" />
-        <mat-icon>arrow_forward</mat-icon>
-        <img
-          *ngIf="pokemon.sprites.front_default"
-          [src]="pokemon.sprites.other['official-artwork'].front_default"
-          alt="Venusaur" />
+        <ng-container *ngFor="let evolution of evolutions; let last = last">
+          <img [src]="evolution.sprites.other['official-artwork'].front_default" [alt]="evolution.name" class="evolution-image" />
+          <mat-icon *ngIf="!last">arrow_forward</mat-icon>
+        </ng-container>
       </div>
     </div>
   </div>
